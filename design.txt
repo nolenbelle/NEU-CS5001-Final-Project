@@ -1,0 +1,72 @@
+Design.txt
+Nolen Belle Bryant
+
+Classes:
+	- Card
+               creates the playing card objects as turtle objects 
+           Attributes:
+                   turtle - each card contains a turtle obect and can therefore 
+                            use turtle methods
+                   front - the gif set as the front image
+                   back - the gif set as the back image
+                   ID - the identifier of the image (used for matching)
+                   visible - the state of the card. when the card is 'image up', 
+                             the visible = True
+           Methods:
+                   flip(self) - turns the card over
+                   eq(self, otherCard) - returns true if both card have the same ID
+                   matched(self, otherCard) - to be used when two cards are equal 
+                                             and to take both card off the table
+		
+
+	- Deck
+               a collection of Card objects
+       Attibutes:
+           box - a list containing all of the card objects. not meant to be mutated
+           table - a list containing the indexs of the card objects in deck.box 
+                   which are considered 'in play'
+       Methods:
+           get_card() - returns the deck.box
+
+Functions:
+	To draw the board and prompt the user for info:
+	- draw_board - draws the squares around the status and the leader board and 
+                        draws the leader board text
+	- get_name - gets the desired user name from the player, shuts down turtle
+			if the dialog box is closed
+	- get_card_number - gets the desired deck size from the player, shuts down
+			turtle if dialog box is closed
+	- check_number - used by get_card_number to filter for valid user input
+
+	To turn on screen clicks into button clicks:
+	- delay -  to delay actions (when flipping cards)
+	- check_button - returns the index of the card which was clicked on and returns
+			a string if the user was clicking elsewhere on the screen
+	- first_click - flips a card 
+	- second_click - flips a second card, takes both cards off the table if match 				
+			or flips them back over if not and updates the status board
+	- on_click - processes where the screen was clicked and then calls first_click
+			or second_click depending on game status
+
+	To randomize the card placement:
+	- shuffle - randomizes the order of the .gifs in the a file containing the 
+			desired images for the cards
+
+	To update the Leader Board:
+	- update_leader_board - rewrites the LeaderBoard.gif afer a game with the new 
+				contents of the leaderboard if needed
+
+	To play the game:
+	- play_game - runs the game while there are cards on the table
+
+Data Structures:
+	- deck.box & deck.table are my main two data stuctures. both are lists and are           
+	  used to keep track of the initialized card objects and which cards are still
+	   'on the table'
+	- temporaary lists are used every time I read from or to a file 
+
+Testing:
+	I started with building my card class which was the biggest hurdle because I was subclassing turtle through the card class wrong for a while. Once I had the card class performing as expected, I moved on to testing the deck class which mostly involvded visual inspection that the cards where positioned where needed and responded to screen clicks as expected. All of the other .py files contain just one or just a few functions. I tested each one of those individually before plugging them into my PlayGame.py which is the driver. I didn't use unittest or anything. Just had print statements at basically every line to let me know when variable were being changed and where the function was behaving unexpectedly. 
+	Then for testing that all the pieces were all together, I just played the game with every variation I could think of meaning 8, 10 and 12 card games, games were I get on the score board and those were I don't, games where the scoreboard is empty or partially full or totally full, games where I try to break the dialog boxes with bad user inputs. Tada!
+
+	

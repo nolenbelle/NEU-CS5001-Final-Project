@@ -1,0 +1,6 @@
+config_zepher.gif
+config_spruce.gif
+config_prebble.gif
+config_bruno.gif
+config_limestone.gif
+config_birch.gif

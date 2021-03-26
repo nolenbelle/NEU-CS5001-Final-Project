@@ -1,0 +1,12 @@
+snakeB.gif
+snakeA.gif
+fieldA.gif
+fieldB.gif
+butterflyA.gif
+butterflyB.gif
+flowersB.gif
+flowersA.gif
+mountainB.gif
+mountainA.gif
+pathA.gif
+pathB.gif
